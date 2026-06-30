@@ -10,9 +10,23 @@
   h1{font-size:1.8rem} h2{margin-top:2rem;font-size:1.2rem}
   code{background:#f2f2f5;padding:1px 5px;border-radius:4px}
   .muted{color:#666;font-size:.9rem}
+  .langbar{display:flex;gap:8px;justify-content:flex-end;margin-bottom:8px}
+  .langbar button{font:inherit;font-size:.85rem;cursor:pointer;border:1px solid #d0d0d8;
+       background:#fff;color:#333;padding:4px 12px;border-radius:999px}
+  .langbar button.active{background:#7b3cff;border-color:#7b3cff;color:#fff}
+  [data-lang]{display:none}
+  [data-lang].active{display:block}
 </style>
 </head>
 <body>
+
+<div class="langbar">
+  <button id="btn-en" onclick="setLang('en')">English</button>
+  <button id="btn-tr" onclick="setLang('tr')">Türkçe</button>
+</div>
+
+<!-- ===================== ENGLISH ===================== -->
+<div data-lang="en" class="active">
 <h1>Privacy Policy — Quire</h1>
 <p class="muted">Last updated: June 30, 2026</p>
 
@@ -72,7 +86,90 @@ Your documents are protected by your device's own security.</p>
 a new "Last updated" date.</p>
 
 <h2>Contact</h2>
-<p>Questions about this policy? Email <a href="mailto:yusakru@gmail.com">yusakru@gmail.com</a>.</p>
+<p>Questions about this policy? Email <a href="mailto:eduplayconnect@gmail.com">eduplayconnect@gmail.com</a>.</p>
+</div>
+
+<!-- ===================== TÜRKÇE ===================== -->
+<div data-lang="tr">
+<h1>Gizlilik Politikası — Quire</h1>
+<p class="muted">Son güncelleme: 30 Haziran 2026</p>
+
+<p><strong>Quire</strong> ("uygulama"), tamamen cihazınızda çalışan bir PDF araç
+setidir. Gizliliğiniz, bu uygulamanın var olma nedenidir: belgeleriniz hiçbir
+zaman telefonunuzdan çıkmayacak şekilde tasarlanmıştır.</p>
+
+<h2>Kısaca</h2>
+<p>Quire <strong>hiçbir</strong> kişisel veriyi toplamaz, saklamaz, iletmez veya
+paylaşmaz. Hesap yok, analiz yok, reklam yok, üçüncü taraf takipçi yok. Yaptığınız
+her şey cihazınızda yerel olarak gerçekleşir.</p>
+
+<h2>Topladığımız veriler</h2>
+<p><strong>Hiçbiri.</strong> Uygulama hiçbir kişisel veya hassas kullanıcı verisi
+toplamaz ve verilerinizin hiçbirini bize ya da herhangi bir sunucuya göndermez.</p>
+
+<h2>Belgeleriniz ve dosyalarınız</h2>
+<p>Açtığınız veya oluşturduğunuz PDF'ler ve görseller tamamen cihazınızda işlenir.
+Hiçbir zaman bir sunucuya yüklenmez, kopyalanmaz ve geliştirici tarafından erişilemez.
+Bir dosyayı kaydettiğinizde veya paylaştığınızda, cihazınızın kendi depolama ve
+paylaşım özellikleri aracılığıyla tamamen sizin kontrolünüzde kalır.</p>
+
+<h2>Kamera ve fotoğraflar</h2>
+<p>"Görselden PDF" özelliği, yalnızca siz isterseniz kameranızı veya fotoğraf
+galerinizi kullanabilir. Çekilen veya seçilen görseller, yalnızca cihazınızda bir PDF
+oluşturmak için kullanılır. Hiç kimseye yüklenmez, iletilmez veya paylaşılmaz.</p>
+
+<h2>İzinler</h2>
+<ul>
+  <li><strong>Kamera</strong> — yalnızca isteğe bağlı "Görselden PDF" özelliği için,
+      bir sayfayı yerel olarak çekmek amacıyla kullanılır.</li>
+  <li><strong>İnternet</strong> — uygulamanın temel çatısı tarafından tanımlanır;
+      ancak uygulama bunu belgelerinizi veya herhangi bir kişisel veriyi yüklemek,
+      iletmek ya da yedeklemek için kullanmaz.</li>
+</ul>
+
+<h2>Son kullanılan dosyalar</h2>
+<p>Kolaylık olması için uygulama, son açılan dosyaların bir listesini tutar. Bu liste
+yalnızca cihazınızda saklanır ve hiçbir yere gönderilmez. Bu listeyi uygulama içinden
+veya uygulama verilerini temizleyerek istediğiniz zaman silebilirsiniz.</p>
+
+<h2>Üçüncü taraflar</h2>
+<p>Quire; üçüncü taraf reklam, analiz veya takip SDK'ları içermez ve hiçbir üçüncü
+tarafla veri paylaşmaz.</p>
+
+<h2>Çocuklar</h2>
+<p>Quire, genel amaçlı bir üretkenlik aracıdır ve 13 yaşından küçük çocuklara yönelik
+değildir. Uygulama hiçbir veri toplamadığı için, çocuklar da dâhil hiç kimseden bilerek
+herhangi bir bilgi toplamaz.</p>
+
+<h2>Veri güvenliği</h2>
+<p>Hiçbir veri cihazınızdan çıkmadığı için, güvence altına alınması gereken sunucu
+tarafı bir depolama yoktur. Belgeleriniz, cihazınızın kendi güvenliğiyle korunur.</p>
+
+<h2>Bu politikadaki değişiklikler</h2>
+<p>Bu politika değişirse, güncellenmiş sürüm aynı URL'de yeni bir "Son güncelleme"
+tarihiyle yayımlanır.</p>
+
+<h2>İletişim</h2>
+<p>Bu politikayla ilgili sorularınız için: <a href="mailto:eduplayconnect@gmail.com">eduplayconnect@gmail.com</a>.</p>
+</div>
+
+<script>
+  function setLang(lang){
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('quire-privacy-lang', lang); } catch (e) {}
+  }
+  // Default: English. Restore last choice if the visitor picked one before.
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('quire-privacy-lang'); } catch (e) {}
+    setLang(saved === 'tr' ? 'tr' : 'en');
+  })();
+</script>
 
 </body>
 </html>
