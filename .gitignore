@@ -1,0 +1,19 @@
+# hcom multi-agent sandbox (local tooling, not part of the deployed site)
+/thinker/
+/coder/
+.hcom-scaffold.json
+
+# NotebookLM sync tooling
+/docs/
+/patches/
+launch.sh
+login.mjs
+mcp_notebook.py
+sync_docs.mjs
+sync_notebooks.mjs
+notebook_sync_status.json
+
+# Node
+node_modules/
+package.json
+package-lock.json
