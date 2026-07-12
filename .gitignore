@@ -17,3 +17,10 @@ notebook_sync_status.json
 node_modules/
 package.json
 package-lock.json
+# Hcom files
+.hcom-scaffold-backup/
+notebook_index.json
+thinker/
+coder/
+tester/
+patches/
